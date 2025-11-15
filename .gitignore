@@ -118,7 +118,7 @@ venv.bak/
 *.csv
 **/mlruns
 **/Artifacts/
+**/artifacts/
 **/final_models/
 *.pyc
 **/logs
-**/catboost_info
