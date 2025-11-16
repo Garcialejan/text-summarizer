@@ -43,7 +43,8 @@ class ModelEvaluation:
                                        attention_mask=inputs["attention_mask"].to(device),
                                        length_penalty=0.8,
                                        num_beams=8,
-                                       max_length=128)
+                                       max_length=128,
+                                       early_stopping = False)
             ''' parameter for length penalty ensures that the model does not generate sequences that are too long. '''
             
             # Finally, we decode the generated texts, 
@@ -65,7 +66,7 @@ class ModelEvaluation:
     def evaluate(self):
         device = "cuda" if torch.cuda.is_available() else "cpu"
         tokenizer = AutoTokenizer.from_pretrained(self.config.tokenizer_path)
-        model_pegasus = AutoModelForSeq2SeqLM.from_pretrained(self.config.model_path).to(device)
+        model_bart = AutoModelForSeq2SeqLM.from_pretrained(self.config.model_path).to(device)
        
         #loading data 
         dataset_samsum_pt = load_from_disk(self.config.data_path)
@@ -73,7 +74,7 @@ class ModelEvaluation:
         rouge_metric = evaluate.load('rouge')
 
         score = self.calculate_metric_on_test_ds(
-        dataset_samsum_pt['test'][0:10], rouge_metric, model_pegasus, tokenizer, batch_size = 2, column_text = 'dialogue', column_summary= 'summary'
+        dataset_samsum_pt['test'][0:10], rouge_metric, model_bart, tokenizer, batch_size = 2, column_text = 'dialogue', column_summary= 'summary'
             )
 
         # Directly use the scores without accessing fmeasure or mid

@@ -19,7 +19,7 @@ model_trainer:
 model_evaluation:
   root_dir: artifacts/model_evaluation
   data_path: artifacts/data_transformation/samsum_dataset
-  model_path: artifacts/model_trainer/bart-samsum-model
+  model_path: artifacts/model_trainer/facebook/bart-large-cnn
   tokenizer_path: artifacts/model_trainer/tokenizer
   metric_file_name: artifacts/model_evaluation/metrics.csv
   
