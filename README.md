@@ -1,4 +1,4 @@
-# TextSummarizer USing Huggingface
+# TextSummarizer with Huggingface: facebook/bart-large-cnn
 
 ### Workflows 
 
