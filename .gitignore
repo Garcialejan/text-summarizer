@@ -122,3 +122,5 @@ venv.bak/
 **/final_models/
 *.pyc
 **/logs
+**/tokenizer
+**/bart-samsum-finetuned

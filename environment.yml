@@ -1,5 +1,5 @@
 name: 
-  C:\Users\Alejandro\Desktop\Proyectos_personales_github\End_to_end_projects\text-summarizer\.venv
+  text_summarizer_env
 channels:
   - defaults
   - https://repo.anaconda.com/pkgs/main
